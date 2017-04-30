@@ -7,7 +7,7 @@ before_script:
 - pip install tox
 - source ~/virtualenv/python3.5/bin/activate
 # test script
-script: tox
+script: python3.6 -m tox
 notifications:
   on_success: change
   on_failure: always
