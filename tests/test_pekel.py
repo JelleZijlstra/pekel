@@ -47,6 +47,15 @@ CASES = [
     ([1, 2], b'\x80\x02(K\x01K\x02l.'),
 ]
 
+try:
+    long
+except NameError:
+    pass
+else:
+    for obj, pekeled in list(CASES):
+        if isinstance(obj, int) and not isinstance(obj, bool):
+            CASES.append((long(obj), pekeled))  # noqa
+
 
 class TestPekel(unittest.TestCase):
     mod = pekel.pypekel
