@@ -1,14 +1,16 @@
 sudo: false
-dist: trusty
 language: python
 python:
+  - 2.7
+  - 3.3
+  - 3.4
+  - 3.5
   - 3.6
 before_script:
-- pip install tox
-- alias python3.3=~/virtualenv/python3.3/bin/python
-- alias python3.5=~/virtualenv/python3.5/bin/python
-# test script
-script: python3.6 -m tox
+- pip install .
+script:
+- python setup.py test
+- if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then pip install -U flake8 flake8-mypy; flake8 .; fi
 notifications:
   on_success: change
   on_failure: always
