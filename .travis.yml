@@ -5,7 +5,7 @@ python:
   - 3.6
 before_script:
 - pip install tox
-- source ~/virtualenv/python3.5/bin/activate
+- alias python3.5=~/virtualenv/python3.5/bin/python
 # test script
 script: python3.6 -m tox
 notifications:
