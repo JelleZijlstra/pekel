@@ -5,6 +5,7 @@ python:
   - 3.6
 before_script:
 - pip install tox
+- alias python3.3=~/virtualenv/python3.3/bin/python
 - alias python3.5=~/virtualenv/python3.5/bin/python
 # test script
 script: python3.6 -m tox
