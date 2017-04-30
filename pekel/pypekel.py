@@ -15,6 +15,7 @@ STOP = b'.'
 # Opcodes
 NEWTRUE = b'\x88'
 NEWFALSE = b'\x89'
+NONE = b'N'
 BINSTRING = b'T'
 SHORT_BINSTRING = b'U'
 BINUNICODE = b'X'
@@ -56,7 +57,9 @@ class Pekeler(object):
 
     def _write_recursive(self, obj):
         # type: (Pekelable) -> None
-        if isinstance(obj, bool):
+        if obj is None:
+            self.f.write(NONE)
+        elif isinstance(obj, bool):
             if obj is True:
                 self.f.write(NEWTRUE)
             elif obj is False:
@@ -154,6 +157,10 @@ class Unpekeler(object):
         # type: () -> None
         self.stack.append(False)
 
+    def dispatch_none(self):
+        # type: () -> None
+        self.stack.append(None)
+
     def dispatch_binstring(self):
         # type: () -> None
         size_bytes = self.f.read(4)
@@ -248,6 +255,7 @@ class Unpekeler(object):
         PROTO: dispatch_proto,
         NEWTRUE: dispatch_newtrue,
         NEWFALSE: dispatch_newfalse,
+        NONE: dispatch_none,
         BINSTRING: dispatch_binstring,
         SHORT_BINSTRING: dispatch_short_binstring,
         BINUNICODE: dispatch_binunicode,

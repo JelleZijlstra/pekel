@@ -36,6 +36,7 @@ CASES = [
      b'\x80\x02X\x00\x01\x00\x00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.'),
     (True, b'\x80\x02\x88.'),
     (False, b'\x80\x02\x89.'),
+    (None, b'\x80\x02N.'),
     ((), b'\x80\x02).'),
     ((1,), b'\x80\x02K\x01\x85.'),
     ((1, 2), b'\x80\x02K\x01K\x02\x86.'),
