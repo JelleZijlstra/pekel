@@ -1,13 +1,10 @@
 sudo: false
 language: python
 python:
-  - 2.7
-  - 3.3
-  - 3.4
-  - 3.5
   - 3.6
 before_script:
 - pip install tox
+- source ~/virtualenv/python3.5/bin/activate
 # test script
 script: tox
 notifications:
