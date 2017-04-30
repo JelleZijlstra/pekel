@@ -10,7 +10,7 @@ before_script:
 - pip install .
 script:
 - python setup.py test
-- if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then pip install -U flake8 flake8-mypy; flake8 .; fi
+- if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then pip install -U flake8 flake8-mypy; flake8 -v .; fi
 notifications:
   on_success: change
   on_failure: always
