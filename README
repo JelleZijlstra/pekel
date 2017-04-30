@@ -1,0 +1,46 @@
+# pekel
+
+## About
+
+Pekel is a protocol for encoding simple objects like strings, integers, and
+tuples in an efficient binary format. The protocol is similar to Python's
+[pickle](https://docs.python.org/3/library/pickle.html). Pekel has the
+following design goals:
+
+    1. Consistency: If you encode an object, you should get the same
+       serialized string out, regardless of what language and language version
+       you are using.
+    2. Portability: Pekel should work reliably and consistently across all
+       supported languages and language versions.
+    3. Efficiency: It should be fast to serialize and deserialize data, and
+       serialized data should be space-efficient.
+
+## Name
+
+Pekel is the Dutch word for "pickle", evoking the protocol's similarity to the
+Python pickle format.
+
+## Interface
+
+The Python interface is similar to that of the pickle module and exposes
+``dumps``, ``dump``, ``loads``, and ``load`` functions.
+
+The following data types are supported:
+
+    1. Binary strings
+    2. Text strings
+    3. Arbitrary-sized, signed integers
+    4. Booleans
+    5. None/NULL
+    6. Heterogeneous tuples of any other types
+    7. Homogeneous lists of any other types
+
+Other data types, including sets, dictionaries, and floats, may be added later.
+
+## Protocol details
+
+Pekel is mostly a subset of pickle protocol 2.
+
+## Testing
+
+Run ``python3.6 -m tox`` in a checkout of this repo.
